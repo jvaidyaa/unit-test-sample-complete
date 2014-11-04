@@ -1,0 +1,58 @@
+buildscript {
+    ext {
+        springBootVersion = '1.1.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'idea'
+apply plugin: 'spring-boot' 
+
+apply from: 'gradle/integrationtest.gradle'
+apply from: 'gradle/jacoco.gradle'
+apply from: 'gradle/pmd.gradle'
+apply from: 'gradle/jdepend.gradle'
+apply from: 'gradle/sonar.gradle'
+
+apply plugin: 'war'
+
+war {
+    baseName = 'demo'
+    version = '0.0.1'
+}
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    providedRuntime
+}
+
+dependencies {
+	// Web
+    compile("org.springframework.boot:spring-boot-starter-web")
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+    
+    // Actuator
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    
+    // Test
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    
+    // Commons Lang
+    compile("org.apache.commons:commons-lang3:3.3.2");
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}

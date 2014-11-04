@@ -1,0 +1,17 @@
+// Sonar
+
+apply plugin: "sonar-runner"
+
+sonarRunner {
+	sonarProperties {
+		property "sonar.projectName", "unit-test-sample"
+		property "sonar.host.url", "http://cim01.obi.aol.com:9000"
+		property "sonar.jdbc.url", "jdbc:mysql://cim01.obi.aol.com:3306/sonar"
+		property "sonar.jdbc.driverjavaName", "com.mysql.jdbc.Driver"
+		property "sonar.jdbc.username", "sonar"
+		property "sonar.jdbc.password", "s0nar"
+		property "sonar.jacoco.itReportPath", "build/jacoco/integrationTest.exec"
+		property "sonar.exclusions", "**/*Test.java,**/com/aol/cmi/application/*.java"
+		property "sonar.junit.reportsPath", test.reports.junitXml.destination
+	}
+}
