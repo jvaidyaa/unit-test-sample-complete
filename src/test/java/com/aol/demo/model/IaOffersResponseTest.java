@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.aol.demo.exceptions.IaException;
 import com.aol.demo.model.IaOffersResponse;
 
 public class IaOffersResponseTest {
@@ -36,4 +37,18 @@ public class IaOffersResponseTest {
 		assertNotNull(productIds);
 	}
 
+	@Test(expected=IaException.class)
+	public void testParseIAResponseError() {
+		new IaOffersResponse("Command error: [01003] Command=CDmProcessEventCommand(Event=GetOffers,SessionId=subpsw174)  caused by Campaign error: [10413] Channel Webmai received from GetOffers is not valid");
+	}
+
+	@Test(expected=IaException.class)
+	public void testParseIAResponseErrorAndCause() {
+		try {
+			new IaOffersResponse("Command error: [01003] Command=CDmProcessEventCommand(Event=GetOffers,SessionId=subpsw174)  caused by Campaign error: [10413] Channel Webmai received from GetOffers is not valid");
+		} catch (IaException ex) {
+			assertNotNull(ex.getMessage());
+			throw ex;
+		}
+	}
 }

@@ -21,6 +21,9 @@ public class IaOffersResponse {
 			"caused\\s*by[^\\n]*",
 			Pattern.DOTALL);
 	
+	public IaOffersResponse() {
+	}
+	
 	public IaOffersResponse(String offers) {
 		parseOffersString(offers);
 	}

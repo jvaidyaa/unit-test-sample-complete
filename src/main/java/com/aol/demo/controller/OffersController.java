@@ -17,7 +17,7 @@ public class OffersController {
 	private OfferService offerService;
 	
 	@RequestMapping
-	public OfferResponse getProduct(@ModelAttribute OfferRequest request) {
+	public OfferResponse getOffers(@ModelAttribute OfferRequest request) {
 		return offerService.getOffers(request);
 	}
 
