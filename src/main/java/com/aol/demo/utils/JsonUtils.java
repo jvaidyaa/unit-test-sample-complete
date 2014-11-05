@@ -6,10 +6,10 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public abstract class JsonUtils {
+public class JsonUtils {
 
-	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-	private static final Logger LOGGER = LoggerFactory.getLogger(JsonUtils.class);
+	static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+	static final Logger LOGGER = LoggerFactory.getLogger(JsonUtils.class);
 
 	public static String toJsonString(Object object) {
 		try {
