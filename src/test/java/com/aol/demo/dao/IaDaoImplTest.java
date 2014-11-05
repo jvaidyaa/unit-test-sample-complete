@@ -35,17 +35,17 @@ public class IaDaoImplTest {
 		ReflectionTestUtils.setField(iaDaoImpl, "restOperations", restOperations);
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Test
 	public void testGetOffers() {
 		// Set Expectations
-		when(restOperations.getForObject(any(URI.class), any(Class.class))).thenReturn("abc");
+		when(restOperations.getForObject(any(URI.class), (Class)any(Class.class))).thenReturn("abc");
 		
 		// Test
 		iaDaoImpl.getOffers(createIaRequest());
 		
 		// Verify
-		verify(restOperations).getForObject(any(URI.class), any(Class.class));
+		verify(restOperations).getForObject(any(URI.class), (Class)any(Class.class));
 	}
 
 	public OfferRequest createIaRequest() {
