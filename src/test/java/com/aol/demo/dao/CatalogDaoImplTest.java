@@ -17,7 +17,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
 
-import com.aol.demo.model.ecommerce.Product;
+import com.aol.demo.model.Product;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)

@@ -1,4 +1,4 @@
-package com.aol.demo.model.ecommerce;
+package com.aol.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestOperations;
 
-import com.aol.demo.model.ecommerce.Product;
-import com.aol.demo.model.ecommerce.ProductWrapper;
+import com.aol.demo.model.Product;
+import com.aol.demo.model.ProductWrapper;
 
 @Service
 public class CatalogDaoImpl implements CatalogDao {

@@ -6,7 +6,7 @@
 //
 
 
-package com.aol.demo.model.ecommerce;
+package com.aol.demo.model;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

@@ -1,5 +1,5 @@
 ## What you'll need
-JDK 1.6 +
+JDK 1.7 +
 
 ## Build the app
 ```

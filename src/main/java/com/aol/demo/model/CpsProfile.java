@@ -1,4 +1,4 @@
-package com.aol.demo.model.profile;
+package com.aol.demo.model;
 
 import java.util.Map;
 

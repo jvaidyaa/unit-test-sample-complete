@@ -12,7 +12,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.aol.demo.model.profile.CpsProfile;
+import com.aol.demo.model.CpsProfile;
 import com.aol.demo.utils.JsonUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
