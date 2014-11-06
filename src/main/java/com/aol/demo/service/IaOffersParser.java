@@ -11,39 +11,24 @@ import com.aol.demo.exceptions.IaException;
 
 public class IaOffersParser {
 
-	private static final Pattern ERROR_PATTERN = Pattern.compile(
-			"Command\\s*error:[^(]*",
-			Pattern.DOTALL);
-	
-	private static final Pattern CAUSE_PATTERN = Pattern.compile(
-			"caused\\s*by[^\\n]*",
-			Pattern.DOTALL);
+	private static final Pattern ERROR_PATTERN = Pattern.compile("Command\\s*error:[^(]*", Pattern.DOTALL);
+	private static final Pattern CAUSE_PATTERN = Pattern.compile("caused\\s*by[^\\n]*", Pattern.DOTALL);
 	
 	public List<String> toContentIds(String rawString) {
-		// Validate
 		validate(rawString);
-		
-		// Get the data
 		return parseIAResponseToContentIds(rawString);
 	}
 
 	private void validate(String offers) {
-		// Do validation and throw exception if required
 		String errorMessage = getMessage(ERROR_PATTERN, offers);
-		if(StringUtils.isEmpty(errorMessage)) {
-			return;
+		if(!StringUtils.isEmpty(errorMessage)) {
+			throw new IaException(errorMessage, getMessage(CAUSE_PATTERN, offers));
 		}
-		
-		
-		throw new IaException(errorMessage, getMessage(CAUSE_PATTERN, offers));
 	}
 
 	private String getMessage(Pattern pattern, String offers) {
 		Matcher errorMatcher = pattern.matcher(offers);
-		if(!errorMatcher.find()) {
-			return "";
-		}
-		return errorMatcher.group();
+		return errorMatcher.find() ? errorMatcher.group() : "";
 	}
 
 	private List<String> parseIAResponseToContentIds(String string) {

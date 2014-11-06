@@ -12,10 +12,10 @@ import org.slf4j.LoggerFactory;
 import com.aol.demo.exceptions.IaException;
 import com.aol.demo.service.IaOffersParser;
 
-public class IaOffersResponseTest {
+public class IaOffersParserTest {
 
 	public static final String iaResponseString = "Id|Name|15|webmail_lb_careOfferDisplayType|4|HeroAolOfferId|6|IA_662ContentId|15|webmail_lb_care";
-	private static final Logger LOGGER = LoggerFactory.getLogger(IaOffersResponseTest.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(IaOffersParserTest.class);
 	
 	@Before
 	public void setUp() throws Exception {

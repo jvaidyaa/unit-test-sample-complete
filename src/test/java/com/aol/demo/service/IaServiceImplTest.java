@@ -27,7 +27,7 @@ public class IaServiceImplTest {
 	@Test
 	public void testGetOffers() {
 		// Set Expectations
-		when(iaDao.getOffers(any(OfferRequest.class))).thenReturn(IaOffersResponseTest.iaResponseString);
+		when(iaDao.getOffers(any(OfferRequest.class))).thenReturn(IaOffersParserTest.iaResponseString);
 		
 		// Test
 		assertNotNull(iaServiceImpl.getOffers(new OfferRequest()));
