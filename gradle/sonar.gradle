@@ -11,7 +11,7 @@ sonarRunner {
 		property "sonar.jdbc.username", "sonar"
 		property "sonar.jdbc.password", ""
 		property "sonar.jacoco.itReportPath", "build/jacoco/integrationTest.exec"
-		property "sonar.exclusions", "**/*Test.java,**/com/aol/cmi/application/*.java"
+		property "sonar.exclusions", "**/*Test.java,**/com/aol/demo/*.java"
 		property "sonar.junit.reportsPath", test.reports.junitXml.destination
 	}
 }
