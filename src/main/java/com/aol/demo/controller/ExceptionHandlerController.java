@@ -63,7 +63,7 @@ public class ExceptionHandlerController {
 	@ExceptionHandler(IaException.class)
 	@ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
 	@ResponseBody
-	public ErrorMessage handleDaoErrorException(IaException e) {
+	public ErrorMessage handleIaException(IaException e) {
 		LOGGER.warn("Handling IaException: {}", e.getClass().getSimpleName(), e);
 		return new ErrorMessage(HttpStatus.SERVICE_UNAVAILABLE.value(), e.getMessage());
 	}

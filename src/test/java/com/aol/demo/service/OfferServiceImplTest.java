@@ -10,7 +10,6 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 import com.aol.demo.dao.CpsDao;
 import com.aol.demo.model.CpsProfile;
-import com.aol.demo.model.IaOffersResponse;
 import com.aol.demo.model.OfferRequest;
 import com.aol.demo.model.Product;
 
@@ -42,7 +41,7 @@ public class OfferServiceImplTest {
 	public void testGetOffers() {
 		// Set expectations
 		when(cpsDao.getCpsData(anyString())).thenReturn(mock(CpsProfile.class));
-		when(iaService.getOffers(any(OfferRequest.class))).thenReturn(mock(IaOffersResponse.class));
+		when(iaService.getOffers(any(OfferRequest.class))).thenReturn(Collections.<String>emptyList());
 		when(catalogService.getProducts(anyListOf(String.class))).thenReturn(Collections.<Product>emptyList());
 		
 		// Test

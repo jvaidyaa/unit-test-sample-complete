@@ -8,8 +8,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonUtils {
 
-	static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-	static final Logger LOGGER = LoggerFactory.getLogger(JsonUtils.class);
+	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+	private static final Logger LOGGER = LoggerFactory.getLogger(JsonUtils.class);
 
 	public static String toJsonString(Object object) {
 		try {

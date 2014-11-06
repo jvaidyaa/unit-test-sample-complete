@@ -1,4 +1,4 @@
-package com.aol.demo.model;
+package com.aol.demo.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.aol.demo.exceptions.IaException;
 
-public class IaOffersResponse {
-
-	private List<String> contentIds = new ArrayList<String>();
+public class IaOffersParser {
 
 	private static final Pattern ERROR_PATTERN = Pattern.compile(
 			"Command\\s*error:[^(]*",
@@ -21,23 +19,12 @@ public class IaOffersResponse {
 			"caused\\s*by[^\\n]*",
 			Pattern.DOTALL);
 	
-	public IaOffersResponse() {
-	}
-	
-	public IaOffersResponse(String offers) {
-		parseOffersString(offers);
-	}
-
-	public List<String> getContentIds() {
-		return contentIds;
-	}
-
-	private void parseOffersString(String offers) {
+	public List<String> toContentIds(String rawString) {
 		// Validate
-		validate(offers);
+		validate(rawString);
 		
 		// Get the data
-		contentIds = parseIAResponseToContentIds(offers);
+		return parseIAResponseToContentIds(rawString);
 	}
 
 	private void validate(String offers) {

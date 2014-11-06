@@ -9,14 +9,14 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.NON_NULL)
 public class OfferResponse {
 	
-	private IaOffersResponse offers;
+	private List<String> offers;
 	private List<Product> products = new ArrayList<Product>();
 	
-	public void setOffers(IaOffersResponse offers2) {
+	public void setOffers(List<String> offers2) {
 		this.offers = offers2;
 	}
 
-	public IaOffersResponse getOffers() {
+	public List<String> getOffers() {
 		return offers;
 	}
 

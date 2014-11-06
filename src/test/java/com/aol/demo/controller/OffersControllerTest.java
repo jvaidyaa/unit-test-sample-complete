@@ -28,7 +28,7 @@ public class OffersControllerTest {
 	@Test
 	public void testGetOffers() {
 		// Set Expectations
-		when(offerService.getOffers(any(OfferRequest.class))).thenReturn(mock(OfferResponse.class));
+		when(offerService.getOffers(any(OfferRequest.class))).thenReturn(new OfferResponse());
 
 		// Test
 		assertNotNull(offersController.getOffers(new OfferRequest()));

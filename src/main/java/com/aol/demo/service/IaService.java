@@ -1,8 +1,9 @@
 package com.aol.demo.service;
 
-import com.aol.demo.model.IaOffersResponse;
+import java.util.List;
+
 import com.aol.demo.model.OfferRequest;
 
 public interface IaService {
-	IaOffersResponse getOffers(OfferRequest request);
+	List<String> getOffers(OfferRequest request);
 }
