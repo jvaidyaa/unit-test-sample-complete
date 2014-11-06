@@ -3,6 +3,7 @@ package com.aol.demo.service;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -32,7 +33,9 @@ public class CatalogServiceImplTest {
 		when(catalogDao.getProduct(anyString())).thenReturn(mock(Product.class));
 		
 		// Test
-		assertFalse(catalogServiceImpl.getProducts(Arrays.asList("a", "b")).isEmpty());
+		List<Product> products = catalogServiceImpl.getProducts(Arrays.asList("a", "b"));
+		assertFalse(products.isEmpty());
+		assertEquals(2, products.size());
 		
 		// Verify
 		verify(catalogDao, atLeastOnce()).getProduct(anyString());
