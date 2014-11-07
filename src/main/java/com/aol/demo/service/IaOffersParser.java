@@ -6,20 +6,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
 
 import com.aol.demo.exceptions.IaException;
 
+@Service
 public class IaOffersParser {
 
 	private static final Pattern ERROR_PATTERN = Pattern.compile("Command\\s*error:[^(]*", Pattern.DOTALL);
 	private static final Pattern CAUSE_PATTERN = Pattern.compile("caused\\s*by[^\\n]*", Pattern.DOTALL);
 	
-	public List<String> toContentIds(String rawString) {
-		validate(rawString);
-		return parseIAResponseToContentIds(rawString);
-	}
-
-	private void validate(String offers) {
+	public void validate(String offers) {
 		String errorMessage = getMessage(ERROR_PATTERN, offers);
 		if(!StringUtils.isEmpty(errorMessage)) {
 			throw new IaException(errorMessage, getMessage(CAUSE_PATTERN, offers));
@@ -31,9 +28,9 @@ public class IaOffersParser {
 		return errorMatcher.find() ? errorMatcher.group() : "";
 	}
 
-	private List<String> parseIAResponseToContentIds(String string) {
+	public List<String> toContentIds(String rawString) {
 		List<String> offerIds = new ArrayList<String>();
-	    for(String rec : string.substring(7).split("Id\\|Name")) {
+	    for(String rec : rawString.substring(7).split("Id\\|Name")) {
 	    	offerIds.add(getContentId(rec));
 		}
 	    

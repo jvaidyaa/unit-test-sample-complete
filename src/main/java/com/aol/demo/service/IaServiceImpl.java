@@ -14,9 +14,14 @@ public class IaServiceImpl implements IaService {
 	@Autowired
 	private IaDao iaDao;
 	
+	@Autowired
+	private IaOffersParser iaParser;
+	
 	@Override
 	public List<String> getOffers(OfferRequest request) {
-		return new IaOffersParser().toContentIds(iaDao.getOffers(request));
+		String offers = iaDao.getOffers(request);
+		iaParser.validate(offers);
+		return iaParser.toContentIds(offers);
 	}
 
 }

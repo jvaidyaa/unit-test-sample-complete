@@ -15,10 +15,11 @@ public class IaServiceImplTest {
 
 	private IaServiceImpl iaServiceImpl;
 	private IaDao iaDao;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		iaServiceImpl = new IaServiceImpl();
+		ReflectionTestUtils.setField(iaServiceImpl, "iaParser", new IaOffersParser());
 		
 		iaDao = mock(IaDao.class);
 		ReflectionTestUtils.setField(iaServiceImpl, "iaDao", iaDao);
