@@ -46,7 +46,7 @@ public class CatalogDaoImplTest {
 	@Test
 	public void testGetProduct() {
 		// Set stubbing expectations
-    	mockServer.expect(anything()).andRespond(withSuccess(responses.getProperty("catalog.product.response"), MediaType.APPLICATION_JSON));
+		mockServer.expect(anything()).andRespond(withSuccess(responses.getProperty("catalog.product.response"), MediaType.APPLICATION_JSON));
     	
     	// Test it
 		final Product product = catalogDao.getProduct("redbox-dvd-rental");

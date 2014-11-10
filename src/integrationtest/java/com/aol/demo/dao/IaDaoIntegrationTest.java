@@ -32,7 +32,7 @@ public class IaDaoIntegrationTest {
 	@Test
 	public void testGetOffers() {
 		String offers = iaDao.getOffers(createIaRequest());
-		LOGGER.info("Offers: {}", offers);
+		LOGGER.info("Offers: '{}'", offers);
 		assertNotNull(offers);
 	}
 

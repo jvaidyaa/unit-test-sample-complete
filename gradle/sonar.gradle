@@ -4,7 +4,8 @@ apply plugin: "sonar-runner"
 
 sonarRunner {
 	sonarProperties {
-		property "sonar.projectName", "unit-test-sample-complete"
+		property "sonar.projectKey", "unit-test-sample-complete-default"
+		property "sonar.projectName", "unit-test-sample-complete-default"
 		property "sonar.host.url", "http://pse-ci-a01.twhite.aol.com:9000/"
 		property "sonar.jdbc.url", "jdbc:mysql://pse-ci-a01.twhite.aol.com:3306/sonar"
 		property "sonar.jdbc.driverjavaName", "com.mysql.jdbc.Driver"
